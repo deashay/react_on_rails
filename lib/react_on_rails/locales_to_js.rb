@@ -47,7 +47,7 @@ module ReactOnRails
         else
           ReactOnRails::Utils.truthy_presence(
             Rails.application && Rails.application.config.i18n.load_path
-          ).presence
+          ).presence.select { |name| name.ends_with?(".yml") }
         end
       end
     end
